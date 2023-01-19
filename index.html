@@ -30,6 +30,74 @@
               }
             }
           </script>
+          <style type="text/tailwindcss">
+            body {
+    background-image: url('../img/bg-tablet-pattern.svg');
+    background-repeat: no-repeat;
+    background-size: 800px;
+    background-position: 90% -25%;
+}
+
+#cta {
+    background-image: url('../img/bg-simplify-desktop.svg');
+    background-repeat: no-repeat;
+}
+
+@media(max-width: 576px) {
+    body{
+        background-position: 50px -50px;
+        background-size: 500px;
+    }
+    #cta {
+        background-image: url('../img/bg-simplify-section-mobile.svg');
+    }
+}
+
+.hamburger {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+}
+
+.hamburger-top, 
+.hamburger-middle, 
+.hamburger-bottom {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s ;
+ }
+.hamburger-middle {
+    transform: translateY(7px);
+}
+.hamburger-bottom {
+    transform: translateY(14px);
+}
+
+.open {
+    transform: rotate(90deg);
+    transform: (translateY(0px));
+}
+
+.open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+
+.open .hamburger-middle {
+    display: none;
+}
+.open .hamburger-bottom {
+transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+          </style>
         <title>Manage Landing</title>
     </head>
     <body>
@@ -50,6 +118,22 @@
                     <a href="#" class="hover:text-darkGrayishBlue">Community</a>
                 </div>
                 <a href="#" class="hidden p-3 px-6 pt-2 text-white bg-brightRed rounded-full baseline hover:bg-brightRedLight md:block">Get Started</a>
+                <!-- Hamburger Icon -->
+                <button id="menu-btn" class="open block hamburger md:hidden focus:outline-none"> 
+                    <span class="hamburger-top"></span>
+                    <span class="hamburger-middle"></span>
+                    <span class="hamburger-bottom"></span>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div class="md:hidden">
+                <div id="menu" class="absolute flex-col items-center self-end hidden py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+                    <a href="#" >Pricing</a>
+                    <a href="#" >Product</a>
+                    <a href="#" >About Us</a>
+                    <a href="#" >Careers</a>
+                    <a href="#" >Community</a>
+                </div>
             </div>
         </nav>
         <!-- Hero Section -->
@@ -222,9 +306,71 @@
         </section>
         <!-- Fotter -->
         <footer class="bg-veryDarkBlue">
-            <div class="container flex flex-con-reverse justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
-                
+            <div class="container flex flex-col-reverse items-center justify-between px-6 py-10 mx-auto space-y-8 md:flex-row md:space-y-0">
+                <!-- Logo and social links container -->
+                <div class="flex flex-col-reverse items-center justify-around space-y-12 md:flex-col md:space-y-0 md:items-start">
+                    <div class="mx-auto my-6 text-center text-white md:hidden">
+                        Copyright &copy; 2023, All Rights Reserved
+                    </div>
+                    <div>
+                        <img src="img/logo-white.svg" alt="Logo White" class="h-8 my-4">
+                    </div>
+                    <!-- Social links container -->
+                    <div class="flex justify-container space-x-4">
+                        <a href="#">
+                            <img src="img/icon-facebook.svg" alt="Facebook" class="h-8">
+                        </a>
+                        <a href="#">
+                            <img src="img/icon-youtube.svg" alt="Youtube" class="h-8">
+                        </a>
+                        <a href="#">
+                            <img src="img/icon-twitter.svg" alt="Twitter" class="h-8">
+                        </a>
+                        <a href="#">
+                            <img src="img/icon-Pinterest.svg" alt="Pinterest" class="h-8">
+                        </a>
+                        <a href="#">
+                            <img src="img/icon-facebook.svg" alt="Facebook" class="h-8">
+                        </a>
+                    </div>
+                </div>
+                <!-- List container -->
+                <div class="flex justify-around space-x-2 lg:space-x-32">
+                    <div class="flex flex-col space-y-3 text-white">
+                        <a href="#" class="hover:text-brightRed">Home</a>
+                        <a href="#" class="hover:text-brightRed">Pricing</a>
+                        <a href="#" class="hover:text-brightRed">Products</a>
+                        <a href="#" class="hover:text-brightRed">About</a>
+                    </div> 
+                    <div class="flex flex-col space-y-3 text-white">
+                        <a href="#" class="hover:text-brightRed">Careers</a>
+                        <a href="#" class="hover:text-brightRed">Community</a>
+                        <a href="#" class="hover:text-brightRed">Privacy Policy  </a>
+                    </div> 
+                </div>
+                <div class="flex flex-col justify-between">
+                    <form >
+                        <div class="flex space-x-3">
+                            <input type="text" class="flex-1 px-4 rounded-full focus:outlined-none"
+                            placeholder="Update in your inbox">
+                            <button class="px-6 py-2 text-white rounded-full bg-brightRed hover:bg-brightRedLight focus:outline-none">Go</button>
+                        </div>
+                    </form>
+                    <div class="hidden text-white md:block">
+                        Copyright &copy; 2023, All Rights Reserved
+                    </div>
+                </div>
             </div>
         </footer>
+        <script>
+            const btn = document.getElementById('menu-btn')
+            const nav = document.getElementById('menu')
+
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('open')
+                nav.classList.toggle('flex')
+                nav.classList.toggle('hidden')
+            })
+        </script>
     </body>
 </html>
