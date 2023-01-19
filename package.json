@@ -1,0 +1,24 @@
+{
+  "name": "traversy-tailwindcss-landing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tailwind -i style.css -o ./public/main.css",
+    "watch": "tailwind -i style.css -o ./public/main.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luan-brav0/traverst-tailwindcss-landing.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luan-brav0/traverst-tailwindcss-landing/issues"
+  },
+  "homepage": "https://github.com/luan-brav0/traverst-tailwindcss-landing#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.2.4"
+  }
+}
